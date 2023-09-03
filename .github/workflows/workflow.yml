@@ -3,7 +3,7 @@
 name: CI
 
 env:
-  GODOT_VERSION: 3.3.3
+  GODOT_VERSION: 4.0.1
   
 # Controls when the workflow will run
 on:
@@ -32,10 +32,6 @@ jobs:
         run: |
           mkdir -v -p ~/.local/share/godot/templates
           mv /root/.local/share/godot/templates/${GODOT_VERSION}.stable ~/.local/share/godot/templates/${GODOT_VERSION}.stable
-      - name: Web Build
-        run: |
-          mkdir -v -p build/web
-          godot -v --export "HTML5" ./build/web/index.html
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
